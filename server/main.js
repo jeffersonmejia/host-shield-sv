@@ -16,8 +16,8 @@ app.listen(PORT, () => {
 const config = {
   host: '172.27.50.4',
   port: 3306,
-  user: 'jef',
-  password: 'jef.7376',
+  user: 'Lisseth',
+  password: 'Miasoledad06',
   database: 'hosting_admin',
 }
 

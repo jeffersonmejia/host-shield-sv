@@ -10,25 +10,42 @@
     <div class="registro-hosting">
       <h1>Registrarse</h1>
       <p>Elige tu plan y lanza tu proyecto online</p>
-      <form action="#" method="post">
-        <input type="text" placeholder="Nombre completo" required />
-        <input type="email" placeholder="Correo electrónico" required />
+      <form action="/register" method="post">
         <input
           type="text"
+          name="nombre"
+          placeholder="Nombre completo"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Correo electrónico"
+          required
+        />
+        <input
+          type="text"
+          name="dominio"
           placeholder="Dominio deseado (mipagina.com)"
           required
         />
-        <select required>
+        <select name="plan" required>
           <option value="">Selecciona un plan de hosting</option>
-          <option>Hosting Básico</option>
-          <option>Hosting Profesional</option>
-          <option>Servidor VPS</option>
-          <option>Servidor Dedicado</option>
+          <option value="Hosting Básico">Hosting Básico</option>
+          <option value="Hosting Profesional">Hosting Profesional</option>
+          <option value="Servidor VPS">Servidor VPS</option>
+          <option value="Servidor Dedicado">Servidor Dedicado</option>
         </select>
-        <input type="password" placeholder="Crea una contraseña" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Crea una contraseña"
+          required
+        />
         <button type="submit">Crear Cuenta</button>
         <small>¿Ya tienes cuenta? Inicia Sesión</small>
       </form>
     </div>
+    <script src="js/signup.js"></script>
   </body>
 </html>
