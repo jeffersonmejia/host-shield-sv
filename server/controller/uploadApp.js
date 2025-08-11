@@ -15,8 +15,8 @@ async function sendFile(zipPath, res) {
     await client.access({
       host: SV_FILES,
       port: SV_FILES_PORT,
-      user: 'grupo2',
-      password: 'archivos',
+      user: 'jef',
+      password: 'jef',
       secure: false,
     })
 
