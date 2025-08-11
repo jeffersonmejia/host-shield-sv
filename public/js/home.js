@@ -10,11 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const signOutBtn = document.getElementById('sign-out')
 
   let currentFile = null
+
   uploadBtn.addEventListener('click', () => fileInput.click())
-
   fileInput.addEventListener('change', handleFileSelect)
-
-  // Configurar eventos de drag and drop
   ;['dragover', 'dragenter'].forEach((event) => {
     dropZone.addEventListener(event, (e) => {
       e.preventDefault()
@@ -40,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })
 
-  // Función para manejar la selección de archivo
   function handleFileSelect() {
     errorMessage.textContent = ''
     uploadResult.style.display = 'none'
@@ -50,59 +47,68 @@ document.addEventListener('DOMContentLoaded', function () {
     const file = fileInput.files[0]
     currentFile = file
 
-    // Validar el archivo
     if (!file.name.toLowerCase().endsWith('.zip')) {
       showError('Solo se permiten archivos .zip')
       return
     }
 
     if (file.size > 50 * 1024 * 1024) {
-      // 50MB límite
       showError('El archivo no puede ser mayor a 50MB')
       return
     }
 
-    // Mostrar información del archivo
     fileInfo.textContent = `Archivo seleccionado: ${
       file.name
     } (${formatFileSize(file.size)})`
 
-    // Simular subida al servidor
-    simulateUpload(file)
+    uploadFile(file)
   }
 
-  function simulateUpload(file) {
+  async function uploadFile(file) {
     progressContainer.style.display = 'block'
+    progressBar.style.width = '0%'
+    progressBar.textContent = '0%'
 
-    // Simular progreso de subida
+    const formData = new FormData()
+    formData.append('zipfile', file)
+
     let progress = 0
     const interval = setInterval(() => {
       progress += Math.random() * 10
-      if (progress > 100) progress = 100
+      if (progress > 95) progress = 95
       progressBar.style.width = progress + '%'
       progressBar.textContent = Math.round(progress) + '%'
-
-      if (progress === 100) {
-        clearInterval(interval)
-
-        // Simular respuesta del servidor
-        setTimeout(() => {
-          const response = {
-            success: true,
-            message: 'Archivo subido correctamente',
-            file: {
-              name: file.name,
-              size: file.size,
-              type: file.type,
-              lastModified: new Date(file.lastModified).toLocaleString(),
-            },
-          }
-
-          showUploadResult(response)
-          progressContainer.style.display = 'none'
-        }, 500)
-      }
     }, 200)
+
+    try {
+      const response = await fetch('/upload-app', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-File-Type': 'zip',
+        },
+      })
+
+      clearInterval(interval)
+
+      if (!response.ok) {
+        const errorText = await response.text()
+        throw new Error(`Server error: ${response.status} - ${errorText}`)
+      }
+
+      const result = await response.text()
+
+      progressBar.style.width = '100%'
+      progressBar.textContent = '100%'
+
+      showUploadResult({ success: true, message: result, file })
+    } catch (error) {
+      showError(`Error subiendo el archivo: ${error.message}`)
+    } finally {
+      setTimeout(() => {
+        progressContainer.style.display = 'none'
+      }, 500)
+    }
   }
 
   function showUploadResult(result) {

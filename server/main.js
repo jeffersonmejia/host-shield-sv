@@ -1,25 +1,40 @@
+const express = require('express')
+const path = require('path')
 const mysql = require('mysql2')
+const routes = require('./routes')
 
-const conexion = mysql.createConnection({
-  host: '172.27.50.4',
-  port: 3306,
-  user: 'Lisseth',
-  password: 'Miasoledad',
-  database: 'hosting_admin',
+const app = express()
+const PORT = 3000
+
+app.use(express.static(path.join(__dirname, '../public')))
+app.use('/', routes)
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`)
 })
 
-conexion.connect((error) => {
-  if (error) {
-    console.error('Error de conexión:', error)
-    return
-  }
-  console.log('Conectado a hosting_admin')
-  conexion.query('SHOW TABLES', (err, resultados) => {
-    if (err) {
-      console.error('Error en la consulta:', err)
-      return
-    }
-    console.log('Tablas en hosting_admin:', resultados)
-    conexion.end()
+const config = {
+  host: '172.27.50.4',
+  port: 3306,
+  user: 'jef',
+  password: 'jef.7376',
+  database: 'hosting_admin',
+}
+
+function connectDB() {
+  return mysql.createConnection(config)
+}
+
+function showTables(connection) {
+  connection.query('SHOW TABLES', (err, results) => {
+    if (err) throw err
+    console.log(`Connection successful to ${config.database}`)
+    connection.end()
   })
+}
+
+const connection = connectDB()
+connection.connect((err) => {
+  if (err) throw err
+  showTables(connection)
 })
