@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.registro-hosting {
+  background-color: #ffffff;
+  padding: 20px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+.registro-hosting h1 {
+  font-size: 28px;
+  color: #028090;
+  margin-bottom: 15px;
+}
+
+.registro-hosting p {
+  font-size: 14px;
+  color: #028090;
+  margin-bottom: 20px;
+}
+
+.registro-hosting form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registro-hosting input,
+.registro-hosting select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  margin: 10px 0;
+  background-color: #e0f7f4;
+  border: 2px solid rgb(185, 185, 185);
+  border-radius: 8px;
+  font-size: 15px;
+  color: #028090;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.registro-hosting select {
+  appearance: none;
+  background-color: #e0f7f4;
+}
+
+.registro-hosting input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.registro-hosting input:focus,
+.registro-hosting select:focus {
+  background-color: #b2f5f0;
+  border-color: #02c39a;
+  outline: none;
+  transform: scale(1.02);
+}
+/*BOTON*/
+.registro-hosting button {
+  background-color: #02c39a;
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  padding: 14px;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.registro-hosting button:hover {
+  background-color: #028090;
+  transform: scale(1.05);
+}
+
+.registro-hosting small {
+  color: #028090;
+  margin-top: 20px;
+  font-size: 12px;
+  display: block;
+}

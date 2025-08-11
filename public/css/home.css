@@ -1,0 +1,154 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.header {
+  background-color: #05668d;
+  box-shadow: 1px 1px 1px rgb(112, 112, 112);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: linear-gradient(90deg, #04ebb9, #00ff9d);
+  border: none;
+  color: #0a192f;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.main-content {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.upload-container {
+  border: 2px dashed #3498db;
+  border-radius: 5px;
+  padding: 3rem;
+  margin: 2rem 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.upload-container:hover {
+  background-color: #f0f8ff;
+  border-color: #2980b9;
+}
+
+.upload-icon {
+  font-size: 3rem;
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.upload-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.upload-btn:hover {
+  background-color: #2980b9;
+}
+
+.file-info {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #7f8c8d;
+}
+
+.error-message {
+  color: #e74c3c;
+  margin-top: 1rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #05668d;
+  color: white;
+  margin-top: 2rem;
+}
+
+.progress-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  margin-top: 1rem;
+  display: none;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 20px;
+  background-color: #4caf50;
+  text-align: center;
+  line-height: 20px;
+  color: white;
+}
+
+.shield {
+  color: #f5f7ff;
+}
+
+.host {
+  color: #04ebb9;
+}

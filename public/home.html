@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShieldHost - Subir Aplicación Web</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/home.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <span class="shield">Shield</span><span class="host">Host</span>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Menú</button>
+        <div class="dropdown-content">
+          <a href="#">Mi cuenta</a>
+          <a href="#" id="sign-out">Cerrar sesión</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <h1>Sube tu proyecto web</h1>
+      <p>Comprime tu sitio en formato .zip y súbelo aquí</p>
+
+      <div class="upload-container" id="dropZone">
+        <div class="upload-icon">
+          <i class="fa-solid fa-arrow-up-from-bracket"></i>
+        </div>
+        <input type="file" id="fileInput" accept=".zip" style="display: none" />
+        <button class="upload-btn" id="uploadBtn">
+          Seleccionar archivo .zip
+        </button>
+        <p class="file-info" id="fileInfo">
+          No se ha seleccionado ningún archivo
+        </p>
+        <div class="progress-container" id="progressContainer">
+          <div class="progress-bar" id="progressBar">0%</div>
+        </div>
+        <p class="error-message" id="errorMessage"></p>
+      </div>
+
+      <div id="uploadResult" style="margin-top: 20px; display: none"></div>
+    </div>
+    <div class="footer">ShieldHost &copy; 2025</div>
+    <script src="js/home.js"></script>
+  </body>
+</html>
