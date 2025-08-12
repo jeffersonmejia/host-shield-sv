@@ -1,42 +1,62 @@
 const fs = require('fs')
 const path = require('path')
-const ftp = require('basic-ftp')
+const SMB2 = require('@awo00/smb2')
 
-const SV_FILES = '172.27.74.54'
-const SV_FILES_PORT = 445
-const UPLOADS_DIR = path.join(__dirname, 'uploads')
+async function sendFile(zipPath, res, originalName) {
+  let smbClient
 
-async function sendFile(zipPath, res) {
   try {
-    const fileName = path.basename(zipPath)
-    const remotePath = `/projects/${fileName}`
+    if (!fs.existsSync(zipPath)) {
+      throw new Error(`Archivo local no encontrado: ${zipPath}`)
+    }
 
-    const client = new ftp.Client()
-    await client.access({
-      host: SV_FILES,
-      port: SV_FILES_PORT,
-      user: 'grupo2',
-      password: 'archivos',
-      secure: false,
+    smbClient = new SMB2.Client()
+    smbClient.host = '172.27.74.54'
+
+    const session = await smbClient.authenticate({
+      domain: process.env.SMB_DOMAIN || 'WORKGROUP',
+      username: process.env.SMB_USER || 'guest',
+      password: process.env.SMB_PASS || '',
     })
 
-    await client.uploadFrom(zipPath, remotePath)
-    client.close()
+    const tree = await session.connectTree('Archivos')
+
+    const fileBuffer = fs.readFileSync(zipPath)
+
+    if (!originalName.toLowerCase().endsWith('.zip')) {
+      throw new Error('El archivo debe tener extensión .zip')
+    }
+
+    const remotePath = path.posix.join('projects', originalName)
+    const exists = await tree.exists(remotePath)
+
+    // if (exists) {
+    //   throw new Error(`El proyecto con nombre ${originalName} ya existe en el servidor`);
+    // }
+
+    if (exists) {
+      await tree.removeFile(remotePath)
+      console.log(
+        `Archivo existente ${originalName} borrado antes de subir nuevo.`
+      )
+    }
+
+    await tree.createFile(remotePath, fileBuffer)
 
     fs.unlinkSync(zipPath)
 
-    const fileToDelete = path.join(UPLOADS_DIR, fileName)
-    if (fs.existsSync(fileToDelete)) {
-      fs.unlinkSync(fileToDelete)
-    }
-
-    if (!res.headersSent) {
-      res.send('Archivo zip enviado y archivo en uploads eliminado')
-    }
+    res?.send('Archivo zip subido exitosamente (reemplazando si ya existía)')
   } catch (error) {
-    console.error('Error enviando zip por FTP:', error)
-    if (!res.headersSent) {
-      res.status(500).send('Error al enviar o eliminar archivo')
+    console.error('Error en transferencia SMB:', {
+      message: error.message,
+      code: error.code || 'NO_CODE',
+      stack: error.stack,
+    })
+    res?.status(500).send(`Error: ${error.message}`)
+  } finally {
+    if (smbClient) {
+      await smbClient.close()
+      console.log('Conexión SMB finalizada')
     }
   }
 }

@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 
 router.post('/upload-app', upload.single('zipfile'), async (req, res) => {
   if (!req.file) return res.status(400).send('No file uploaded')
-  await sendFile(req.file.path, res)
+  await sendFile(req.file.path, res, req.file.originalname)
 })
 
 router.post(

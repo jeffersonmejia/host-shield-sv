@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "conexion MySQL",
   "dependencies": {
+    "@awo00/smb2": "^1.1.1",
     "axios": "^1.11.0",
     "basic-ftp": "^5.0.5",
     "dotenv": "^17.2.1",
