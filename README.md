@@ -46,15 +46,16 @@ La red implementa una **topología estrella** conectando los servidores mediante
 
 ### 2.3 Direcciones IP Zerotier - comunicación VPN
 
-| No  | Servicio        | Responsable | Dirección IP   |
-| --- | --------------- | ----------- | -------------- |
-| 1   | database-sv-001 | Jefferson   | 172.27.50.4    |
-| 2   | file-sv-002     | Michael     | Pendiente      |
-| 3   | hosting-sv-003  | Lisseth     | 172.27.16.235  |
-| 4   | balancer-sv-004 | Bruce       | Pendiente      |
-| 5   | email-sv-005    | Noelia      | 172.27.141.126 |
-| 6   | balancer-sv-006 | Michael     | 172.27.71.47   |
-| 7   | servidor-azure  | Jefferson   | N/A            |
+| No  | Servicio              | Responsable | Dirección IP    |
+| --- | --------------------- | ----------- | --------------- |
+| 1   | database-sv-001       | Jefferson   | 172.27.50.4     |
+| 2   | database-sv-002-azure | Jefferson   | N/A             |
+| 3   | file-sv-backup-003    | Michael     | 172.27.71.47    |
+| 4   | file-sv-004           | Michael     | Pendiente       |
+| 5   | balancer-sv-005       | Bruce       | Pendiente       |
+| 6   | hosting-sv-006        | Noelia      | 172.27.16.235   |
+| 7   | web-sv-007            | Lisseth     | 172.27.141.126  |
+
 
 ---
 
