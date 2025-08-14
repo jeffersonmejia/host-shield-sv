@@ -26,11 +26,11 @@ La red implementa una **topología estrella** conectando los servidores mediante
 | --- | ----------- | ------ | --------------------------- | ------- | ----- | ------ | ------------------------------ | ---------------------------------------- |
 | 1   | Jefferson   | Lenovo | AMD 3020e 1.20GHz           | 2       | 3GB   | 1TB    | Ubuntu 22.04 (WSL)              | Base de datos                            |
 | 2   | Jefferson   | Azure  | Intel® Xeon® E5-2673 2.3 GHz| 2       | 16GB  | 30GB   | Ubuntu 24.04 (VM)               | Respaldo de base de datos / Servidor Azure |
-| 7   | Noelia      | HP     | i5-1135G7 1.10GHz                     | 2       | 4GB   | 20GB   | Ubuntu 22.04 (VM)               | Archivos                       |
-| 6   | Bruce       | HP     | Ryzen 7 5700U 1.80GHz       | 4       | 3GB   | 20GB   | Ubuntu 22.04 (VM)               | Respaldo archivos          |
-| 4   | Michael     | HP     | i5-1135G7 1.10GHz           | 4       | 4GB   | 20GB   | Ubuntu 22.04 (VM)               | Balanceador de carga            |
-| 5   | Lisseth     | ASUS   | i7-12700H                   | 2       | 3GB   | 20GB   | Ubuntu 22.04 (VM)               | Hosting web                              |
-| 3   | Michael     | HP     | i5-1135G7 1.10GHz           | 4       | 8GB   | 20GB   | Ubuntu 22.04 (VM)               | Monitoreo Zabbix                                 |
+| 3   | Noelia      | HP     | i5-1135G7 1.10GHz                     | 2       | 4GB   | 20GB   | Ubuntu 22.04 (VM)               | Archivos                       |
+| 4   | Bruce       | HP     | Ryzen 7 5700U 1.80GHz       | 4       | 3GB   | 20GB   | Ubuntu 22.04 (VM)               | Respaldo archivos          |
+| 5   | Michael     | HP     | i5-1135G7 1.10GHz           | 4       | 4GB   | 20GB   | Ubuntu 22.04 (VM)               | Balanceador de carga            |
+| 6   | Lisseth     | ASUS   | i7-12700H                   | 2       | 3GB   | 20GB   | Ubuntu 22.04 (VM)               | Hosting web                              |
+| 7   | Michael     | HP     | i5-1135G7 1.10GHz           | 4       | 8GB   | 20GB   | Ubuntu 22.04 (VM)               | Monitoreo Zabbix                                 |
 
 
 
@@ -46,7 +46,7 @@ La red implementa una **topología estrella** conectando los servidores mediante
 | 4   | file-sv-backup-004    | Bruce       | VM: Ubuntu 24.04  | 172.27.255.154         | N/A                |
 | 5   | balancer-sv-005       | Michael     | VM: Ubuntu 24.04  | 172.27.71.47           | N/A                |
 | 6   | hosting-sv-006        | Lisseth     | VM: Ubuntu 24.04  | 172.27.16.235          | N/A                |
-| 8   | zabbix-sv-008         | Michael     | WSL: Ubuntu 22.04  | N/A                    | N/A                |
+| 7   | zabbix-sv-008         | Michael     | WSL: Ubuntu 22.04  | N/A                    | N/A                |
 
 ---
 
