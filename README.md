@@ -50,11 +50,11 @@ La red implementa una **topología estrella** conectando los servidores mediante
 | --- | --------------------- | ----------- | --------------- |
 | 1   | database-sv-001       | Jefferson   | 172.27.50.4     |
 | 2   | database-sv-002-azure | Jefferson   | N/A             |
-| 3   | file-sv-003           | Michael     | 172.27.71.47    |
-| 4   | file-sv-004           | Bruce       | Pendiente       |
+| 3   | file-sv-003           | Noelia      | 172.27.71.47    |
+| 4   | file-sv-backup-004    | Bruce       | Pendiente       |
 | 5   | balancer-sv-005       | Michael     | Pendiente       |
-| 6   | hosting-sv-006        | Noelia      | 172.27.16.235   |
-| 7   | web-sv-007            | Lisseth     | 172.27.141.126  |
+| 6   | hosting-sv-006        | Lisseth     | 172.27.16.235   |
+| 8   | zabbix-sv-008         | Michael     | N/A             |
 
 
 ---
