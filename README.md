@@ -22,15 +22,17 @@ La red implementa una **topología estrella** conectando los servidores mediante
 
 ### 2.1 Arquitectura TI
 
-| N°  | Responsable | Marca  | Procesador            | Núcleos | RAM   | Disco  | SO                             | ID              | Servicio        | Virtualización  |
-| --- | ----------- | ------ | --------------------- | ------- | ----- | ------ | ------------------------------ | --------------- | --------------- | --------------- |
-| 1   | Jefferson   | Lenovo | AMD 3020e 1.20GHz     | 2       | 3GB   | 1TB    | Ubuntu 22.04 (WSL)              | database-sv-001 | Base de datos   | WSL             |
-| 2   | Jefferson   | Azure  | Intel® Xeon® E5-2673 2.3 GHz | 2     | 16GB   | 30GB    | Ubuntu 24.04          | azure-sv-007    | Respaldo de base de datos / Servidor Azure | N/A |
-| 3   | Michael     | HP     | i5-1135G7 2.40GHz     | 4       | 8GB   | 20GB  | Ubuntu 22.04 (Máquina Virtual)  | file-sv-002     | Archivos        | Máquina Virtual |
-| 4   | Michael     | HP     | i5-1135G7 2.40GHz     | 4     | 4GB   |20GB  | Ubuntu 22.04 (Máquina Virtual)  | sv-balancer-006 | Balanceador de carga adicional | Máquina Virtual |
-| 5   | Lisseth     | ASUS   | i7-12700H             | 2      | 3GB  | 20GB    | Ubuntu 22.04 (Máquina Virtual)  | hosting-sv-003  | Hosting web     | Máquina Virtual |
-| 6   | Bruce       | HP     | Ryzen 7 5700U 1.80GHz | 4       | 3GB  | 20GB  | Ubuntu 22.04                   | sv-balancer-004 | Balanceador de carga (archivos) | Nativo (Docker) |
-| 7   | Noelia      | HP     | i5-1235U              | 2      | 4GB  | 20GB  | Ubuntu 22.04 (Máquina Virtual)  | sv-email-005    | Correo electrónico | Máquina Virtual |
+| N°  | Responsable | Marca  | Procesador                  | Núcleos | RAM   | Disco  | SO                             | Servicio                                 |
+| --- | ----------- | ------ | --------------------------- | ------- | ----- | ------ | ------------------------------ | ---------------------------------------- |
+| 1   | Jefferson   | Lenovo | AMD 3020e 1.20GHz           | 2       | 3GB   | 1TB    | Ubuntu 22.04 (WSL)              | Base de datos                            |
+| 2   | Jefferson   | Azure  | Intel® Xeon® E5-2673 2.3 GHz| 2       | 16GB  | 30GB   | Ubuntu 24.04 (VM)               | Respaldo de base de datos / Servidor Azure |
+| 7   | Noelia      | HP     | i5-1135G7 1.10GHz                     | 2       | 4GB   | 20GB   | Ubuntu 22.04 (VM)               | Archivos                       |
+| 6   | Bruce       | HP     | Ryzen 7 5700U 1.80GHz       | 4       | 3GB   | 20GB   | Ubuntu 22.04 (VM)               | Respaldo archivos          |
+| 4   | Michael     | HP     | i5-1135G7 1.10GHz           | 4       | 4GB   | 20GB   | Ubuntu 22.04 (VM)               | Balanceador de carga            |
+| 5   | Lisseth     | ASUS   | i7-12700H                   | 2       | 3GB   | 20GB   | Ubuntu 22.04 (VM)               | Hosting web                              |
+| 3   | Michael     | HP     | i5-1135G7 1.10GHz           | 4       | 8GB   | 20GB   | Ubuntu 22.04 (VM)               | Monitoreo Zabbix                                 |
+
+
 
 ---
 
