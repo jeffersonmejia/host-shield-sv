@@ -46,15 +46,16 @@ La red implementa una **topología estrella** conectando los servidores mediante
 
 ### 2.3 Direcciones IP Zerotier - comunicación VPN
 
-| No  | Servicio              | Responsable | Dirección IP    |
-| --- | --------------------- | ----------- | --------------- |
-| 1   | database-sv-001       | Jefferson   | 172.27.50.4     |
-| 2   | database-sv-002-azure | Jefferson   | N/A             |
-| 3   | file-sv-003           | Noelia      | 172.27.71.47    |
-| 4   | file-sv-backup-004    | Bruce       | Pendiente       |
-| 5   | balancer-sv-005       | Michael     | Pendiente       |
-| 6   | hosting-sv-006        | Lisseth     | 172.27.16.235   |
-| 8   | zabbix-sv-008         | Michael     | N/A             |
+| No  | Servicio              | Responsable | SO   | Dirección IP privada    | Dirección IP pública |
+| --- | --------------------- | ----------- | ---- | ---------------------- | ------------------ |
+| 1   | database-sv-001       | Jefferson   | WSL: Ubuntu 22.04  | 172.27.50.4            | N/A                |
+| 2   | database-sv-002-azure | Jefferson   | VM: Ubuntu 24.04  | 4.228.217.124          | 10.0.0.4           |
+| 3   | file-sv-003           | Noelia      | VM: Ubuntu 22.04  | 172.27.71.47           | N/A                |
+| 4   | file-sv-backup-004    | Bruce       | VM: Ubuntu 24.04  | 172.27.255.154         | N/A                |
+| 5   | balancer-sv-005       | Michael     | VM: Ubuntu 24.04  | 172.27.71.47           | N/A                |
+| 6   | hosting-sv-006        | Lisseth     | VM: Ubuntu 24.04  | 172.27.16.235          | N/A                |
+| 8   | zabbix-sv-008         | Michael     | WSL: Ubuntu 22.04  | N/A                    | N/A                |
+
 
 
 ---
